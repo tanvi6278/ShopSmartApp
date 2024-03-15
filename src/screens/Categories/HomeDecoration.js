@@ -19,9 +19,17 @@ const HomeDecoration = () =>
                                <Text>
                                     {item.title}
                                </Text>
+                               <View style={{height:130,width:142,alignItems:"center",borderRadius:5,marginTop:7,
+                    borderWidth:0.3,borderColor:"grey"}}>
+                 <Image style={{height:110,marginTop:10,
+                    width:121}} source={{uri:item.thumbnail}} /> 
+                </View>
+               
+               <View>
                                <Text>
                                     {item.price}
                                </Text>
+                               <Text>{item.rating}</Text>
                               
 
                                 
