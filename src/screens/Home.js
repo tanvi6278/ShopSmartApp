@@ -5,7 +5,8 @@ import Collection from "../components/Collection";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import {  useDispatch } from "react-redux";
-import { setComputerApi, setFrangrances, setGroceries, setHomeDecoration, setLaptops, setSkincare, setTanviApi } from "../redux/Action";
+import { setComputerApi, setFrangrances, setFurniture, setGroceries, setHomeDecoration, setLaptops, setSkincare, setTanviApi } from "../redux/Action";
+
 
 
 
@@ -140,6 +141,22 @@ const Home = ()=>
           }
 
    }
+
+   const furnitureApi = async () =>
+   {
+       try {
+
+        const response = await axios.get('https://dummyjson.com/products/category/furniture')
+        dispatch(setFurniture(response.data.products))
+        navigation.navigate('Furniture')
+        console.log('fetching data')
+       } catch (error) {
+
+        console.log('not fetching')
+        
+       }
+
+   }
   
   useEffect(() => {
     fetchAllProducts()
@@ -165,8 +182,8 @@ const Home = ()=>
         <Category onPress={fetchSkincare} name="Skincare"/>
         <Category  onPress={GroceriesApi} name="Groceries"/>
         <Category onPress={homeDecorationApi} name="Home Decoration"/>
-        <Category name="Furniture"/>
-        <Category name="Tops"/>
+        <Category onPress={furnitureApi}  name="Furniture"/>
+        
         <Category onPress={goToCategoryList} name="View All"/>
         </ScrollView>
         </View>
@@ -174,8 +191,7 @@ const Home = ()=>
         </View>
        
         
-         
-
+        
 
 
 

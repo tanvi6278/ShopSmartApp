@@ -14,6 +14,7 @@ import Fragrances from "../screens/Categories/Fragrances";
 import Skincare from "../screens/Categories/Skincare";
 import Groceries from "../screens/Categories/Groceries";
 import HomeDecoration from "../screens/Categories/HomeDecoration";
+import Furniture from "../screens/Categories/Furniture";
 
 
 
@@ -51,6 +52,7 @@ const MainStack = ()=>
         <Stack.Screen name="Skincare" component={Skincare} />
         <Stack.Screen name="Groceries" component={Groceries} />
         <Stack.Screen name="HomeDecoration" component={HomeDecoration} />
+        <Stack.Screen name="Furniture" component={Furniture} />
       </Stack.Navigator>           
 
  

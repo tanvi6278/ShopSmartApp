@@ -38,3 +38,10 @@ export const setFrangrances = (item)=>
      payload : item
 
 })
+
+export const setFurniture = (item) =>
+({
+     type : 'SET_FURNITURE',
+     payload: item
+
+})

@@ -28,6 +28,11 @@ const homeDecorationInitialState = {
      homeDecorationItem : []
 }
 
+const furnitureInitialState = {
+
+    furnitureItem : []
+}
+
 const tanviReducer = (state = tanviInitialState,action) =>
 {
     switch(action.type) {
@@ -119,13 +124,30 @@ const skincareReducer = (state = skincareInitialState,action) =>
      
  }
 
+ const furnitureReducer = (state = furnitureInitialState ,action) =>
+ {
+    switch(action.type)
+    {
+        case 'SET_FURNITURE' :
+            return{
+                ...state , furnitureItem : action.payload
+            }
+
+            default :
+            return state
+
+    }
+
+ }
+
 const rootReducer = combineReducers({
     tanvi: tanviReducer,
     laptop: laptopReducer,
     fragrances : fragrancesReducer,
     skincare : skincareReducer,
     groceries : groceriesReducer,
-    homeDecoration : homeDecorationReducer
+    homeDecoration : homeDecorationReducer,
+    furniture : furnitureReducer
 
    
 })

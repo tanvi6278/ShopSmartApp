@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import { FlatList, Text, View,Image } from "react-native"
+import { FlatList, View,Image,Text } from "react-native"
 import { useSelector } from "react-redux";
 
-const HomeDecoration = () =>
+const Furniture = () =>
+
+
 {
 
-    const [column,setColumn] = useState(2)
-    const homeDecorationDesc = useSelector((state) => state.homeDecoration.homeDecorationItem)
-    
+    const [column ,setColumn] = useState(2)
+      const furnitureDes = useSelector( (state) => state.furniture.furnitureItem )
+
     return(
-            
-            <View>
-                  <FlatList 
-                 key={column}
-                  data={homeDecorationDesc}
-                  keyExtractor={ (item) => item.id.toString()}
-                  numColumns={column}
-                  renderItem={({item})=> (
-                    <View style={{paddingHorizontal:10}}>
+
+        <View>
+
+        <FlatList
+        key={column}
+         data={furnitureDes}
+         keyExtractor={ (item) => item.id.toString()}
+         numColumns={column}
+         renderItem={ ({item}) => (
+
+            <View style={{paddingHorizontal:10}}>
              <View style={{height:230,width:170,borderRadius:5,alignItems:"center",paddingHorizontal:5,
              marginTop:10,
              borderWidth:0.3,borderColor:"grey"}}>
@@ -38,12 +42,13 @@ const HomeDecoration = () =>
              </View>        
         </View>
 
-                  )}
-                    />
+         )
+         
+         
+         } />
 
-            </View>
 
+        </View>
     )
-
 }
-export default HomeDecoration;
+export default Furniture;
