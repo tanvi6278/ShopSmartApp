@@ -4,6 +4,7 @@ import {  useSelector } from "react-redux";
 
 const JewelleryDesc = () =>
 {
+  
   const [column, setColumn] = useState(2)
   const tanvi = useSelector(state => state.tanvi.tanviItems);
      return(
@@ -22,7 +23,7 @@ const JewelleryDesc = () =>
                 <View style={{height:130,width:142,alignItems:"center",borderRadius:5,marginTop:7,
                     borderWidth:0.3,borderColor:"grey"}}>
                  <Image style={{height:110,marginTop:10,
-                    width:121}} source={{uri:item.image}} /> 
+                    width:121}} source={{uri:item.thumbnail}} /> 
                 </View>
                
                <View>

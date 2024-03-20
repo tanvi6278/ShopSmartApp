@@ -1,6 +1,6 @@
 
 
-export const setComputerApi = (item) =>
+export const setSmartphone = (item) =>
 ({
     type: 'SET_TANVI',
     payload: item

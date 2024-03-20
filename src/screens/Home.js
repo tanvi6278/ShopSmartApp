@@ -5,7 +5,7 @@ import Collection from "../components/Collection";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import {  useDispatch } from "react-redux";
-import { setComputerApi, setFrangrances, setFurniture, setGroceries, setHomeDecoration, setLaptops, setSkincare, setTanviApi } from "../redux/Action";
+import { setComputerApi, setFrangrances, setFurniture, setGroceries, setHomeDecoration, setLaptops, setSkincare, setSmartphone, setTanviApi } from "../redux/Action";
 
 
 
@@ -18,6 +18,7 @@ const Home = ()=>
   const navigation = useNavigation();
   const [productItems, setProductItems] = useState([]);
   const [columns, setColumns] = useState(2)
+  const [categories, setCategories] = useState([])
 
   const fetchAllProducts = async () => {
      
@@ -25,6 +26,7 @@ const Home = ()=>
 
       const response = await axios.get('https://dummyjson.com/products')
       setProductItems(response.data.products)
+      console.log('produ',response.data)
       
       
       
@@ -45,22 +47,33 @@ const Home = ()=>
   //   } 
   // };
   
+  const categoryApiCall = async () =>
+  {
+           try {
+            const response = await axios.get('https://dummyjson.com/products/categories')
+            setCategories(response.data)
+            console.log("fetching data",response.data) 
 
+           } catch (error) {
+             console.error("not fetching",error)
+           }
+  }
   
 
   const goToCategoryList =  ()=>
   {
     navigation.navigate('CategoryList')
+   
   }
 
 
-  const Tanvi = async ()=>
+  const fetchSmartphoneApi = async ()=>
   {
       try {
-         const response = await axios.get('https://fakestoreapi.com/products')
-         dispatch(setComputerApi(response.data))
-         navigation.navigate('JewelleryDesc')
-         console.log("fetching",response.data)
+         const response = await axios.get('https://dummyjson.com/products/category/smartphones')
+         dispatch(setSmartphone(response.data.products))
+        //  navigation.navigate('JewelleryDesc')
+         console.log("fetching",response.data.products)
       } catch (error) {
         console.error("not fetching api",error)
         
@@ -157,8 +170,39 @@ const Home = ()=>
        }
 
    }
+
+   const navigateCategories = (romika)=> {
+    
+    switch (romika) {
+      case 'smartphones' :
+        navigation.navigate('JewelleryDesc');
+        break;
+        case 'laptops' :
+        navigation.navigate('Laptops');
+        break;
+        case 'fragrances' :
+          navigation.navigate('Fragrances');
+          break;
+        case 'skincare' :
+           navigation.navigate('Skincare');
+           break;
+        case 'groceries' :
+           navigation.navigate('Groceries');
+           break;
+        case 'home-decoration' :
+           navigation.navigate('HomeDecoration')
+          break;
+ 
+          default :
+               
+
+
+
+    }
+   }
   
   useEffect(() => {
+    categoryApiCall()
     fetchAllProducts()
   }, []);
 
@@ -173,19 +217,29 @@ const Home = ()=>
         <Text style={{fontSize:17,fontWeight:"500",color:"#000"}}>
              Categories
         </Text>
-        <View>
+        <View>  
         <ScrollView horizontal>
-         
-        <Category onPress={Tanvi} name="Smart Phones"/>
-        <Category onPress={Laptops} name="Laptops"/>
-        <Category  onPress={Fragrances} name="Fragrances"/>
-        <Category onPress={fetchSkincare} name="Skincare"/>
-        <Category  onPress={GroceriesApi} name="Groceries"/>
-        <Category onPress={homeDecorationApi} name="Home Decoration"/>
-        <Category onPress={furnitureApi}  name="Furniture"/>
-        
-        <Category onPress={goToCategoryList} name="View All"/>
+               
+                    {
+                      categories.map( (romika,index) => (
+                         
+                        <Pressable onPress={() => navigateCategories(romika)}  key={index}
+         style={{height:80,width:160,alignItems:"center",marginTop:10,paddingHorizontal:5,
+        backgroundColor:"red",justifyContent:"center", borderRadius:10}}>
+            <Text style={{color:"#fff",fontWeight:"700",fontSize:17,textAlign:'center'}} numberOfLines={2}>
+              {romika}
+            </Text>
+        </Pressable>
+                      )
+                      )
+                    }
+
+               
+     
+
         </ScrollView>
+               
+
         </View>
         
         </View>

@@ -15,7 +15,7 @@ const Furniture = () =>
         <View>
 
         <FlatList
-        key={column}
+     
          data={furnitureDes}
          keyExtractor={ (item) => item.id.toString()}
          numColumns={column}

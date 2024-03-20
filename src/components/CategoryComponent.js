@@ -7,7 +7,7 @@ const CategoryComponents = (props)=>
              <View style={{height:50,width:"100%",paddingHorizontal:8,
             }}>
                    
-                  <Pressable style={{flexDirection:"row",width:"97%",marginTop:8,alignItems:"center",borderBottomWidth:1.8,
+                  <Pressable onPress={props.onPress} style={{flexDirection:"row",width:"97%",marginTop:8,alignItems:"center",borderBottomWidth:1.8,
                   justifyContent:"space-between",paddingVertical:8,borderBottomColor:"#e6e6e6"}}>
                   <View style={{height:30,width:160,flexDirection:"row",alignItems:"center",gap:10
                    }}>
