@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import { View,Text, Image, Pressable, ScrollView, FlatList, StyleSheet, RefreshControl } from "react-native"
+import { View,Text, Image, Pressable, ScrollView, FlatList, StyleSheet, RefreshControl, TextInput } from "react-native"
 import Category from "../components/Category";
 import Collection from "../components/Collection";
 import axios from "axios";
@@ -220,7 +220,16 @@ const Home = ()=>
 
  return(
     <View style={{width:"100%",height:"100%"}}>
-      <View>
+      <View style={{height:45,width:"100%",flexDirection:"row",paddingHorizontal:10,alignItems:"center",
+      justifyContent:"space-between",
+      backgroundColor:"red"}}>
+          <Image style={{height:18,width:120}} source={require('../icons/logo_hor.png')} />
+          <Pressable onPress={()=>navigation.navigate('SearchItem')}>
+          <Image style={{height:21,width:21}} source={require('../icons/searchbar.png')} />
+          </Pressable>
+      </View>
+
+      <View style={{marginTop:2}}>
           <Image style={{height:200,width:"100%"}} source={require('../icons/galaxy.jpg')}/>
       </View>
       

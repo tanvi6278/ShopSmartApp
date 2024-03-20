@@ -9,7 +9,7 @@ const Product = ({route})=>{
 
      const [modalVisible, setModalVisible] = useState(false)
      const {item} = route.params
-     
+    
 
     return(
         <View style={{height:"100%",width:"100%",alignItems:"center"}}>
@@ -21,8 +21,15 @@ const Product = ({route})=>{
 
             <View style={{marginLeft:10,paddingVertical:10,height:100}}>
             <ScrollView horizontal>
-            {item.images.map((image, index) => (
-              <ProductPick key={index} img={{ uri: image }} />
+            {item.images.map((image,index) =>(
+               <View style={{height:60,width:60,borderWidth:0.2,borderColor:"grey",alignItems:"center",justifyContent:"center",
+     marginHorizontal:5,
+     backgroundColor:"#fff",marginTop:10}}>
+       <Image style={{height:45,width:45}} source={{uri:image}} />  
+          
+     </View>
+                 
+
             ))}
           
             </ScrollView>
