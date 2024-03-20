@@ -175,24 +175,35 @@ const Home = ()=>
     
     switch (romika) {
       case 'smartphones' :
+        fetchSmartphoneApi();
         navigation.navigate('JewelleryDesc');
         break;
         case 'laptops' :
+        Laptops();
         navigation.navigate('Laptops');
         break;
         case 'fragrances' :
+          Fragrances();
           navigation.navigate('Fragrances');
           break;
         case 'skincare' :
+          fetchSkincare();
            navigation.navigate('Skincare');
            break;
         case 'groceries' :
+          GroceriesApi();
            navigation.navigate('Groceries');
            break;
         case 'home-decoration' :
+          homeDecorationApi();
            navigation.navigate('HomeDecoration')
           break;
- 
+         
+        case 'furniture' :
+          furnitureApi();
+          navigation.navigate('Furniture')  
+          break;
+
           default :
                
 

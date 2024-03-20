@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import { FlatList, View,Image ,Text} from "react-native";
+import { FlatList, View,Image ,Text, Pressable} from "react-native";
 import { useSelector } from "react-redux";
 
-const Skincare = () =>
+const Skincare = ({navigation}) =>
 {
+     const passData = (item) =>
+     {
+        navigation.navigate('Product',{item})
+     }
+
     const [column ,setColumn] = useState(2)
     
     const skincareDes = useSelector( (state) => state.skincare.skincareItem )
@@ -17,7 +22,7 @@ const Skincare = () =>
                 keyExtractor={(item) => item.id.toString()}
                 numColumns={column}
                 renderItem={({item})=> (
-                    <View style={{paddingHorizontal:10}}>
+                    <Pressable onPress={()=> passData(item)} style={{paddingHorizontal:10}}>
              <View style={{height:230,width:170,borderRadius:5,alignItems:"center",paddingHorizontal:5,
              marginTop:10,
              borderWidth:0.3,borderColor:"grey"}}>
@@ -37,7 +42,7 @@ const Skincare = () =>
                  }}>₹{item.price}</Text>
                </View>
              </View>        
-        </View>
+        </Pressable>
                 )}
               />
 

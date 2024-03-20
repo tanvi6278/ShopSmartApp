@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { View,Text, Image, FlatList } from "react-native";
+import { View,Text, Image, FlatList, Pressable } from "react-native";
 import {  useSelector } from "react-redux";
 
-const Laptops = () =>
+const Laptops = ({navigation}) =>
 {
+
+  const passData = (item)=>
+  {
+    navigation.navigate('Product',{item})
+  }
+
   const [column, setColumn] = useState(2)
   const laptopDes = useSelector(state => state.laptop.laptopItems);
      return(
@@ -15,7 +21,7 @@ const Laptops = () =>
       numColumns={column}
        renderItem={({item}) => (
 
-        <View style={{paddingHorizontal:10}}>
+        <Pressable onPress={()=> passData(item)} style={{paddingHorizontal:10}}>
              <View style={{height:230,width:170,borderRadius:5,alignItems:"center",paddingHorizontal:5,
              marginTop:10,
              borderWidth:0.3,borderColor:"grey"}}>
@@ -34,7 +40,7 @@ const Laptops = () =>
                  }}>₹{item.price}</Text>
                </View>
              </View>        
-        </View>
+        </Pressable>
        )} />
         </View>
 

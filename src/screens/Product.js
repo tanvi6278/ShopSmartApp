@@ -5,43 +5,41 @@ import Replacement from "../components/Replacement";
 import MOdal from '../components/Modal'
 import UpperView from "../components/Modal";
 
-const Product = ()=>{
+const Product = ({route})=>{
 
      const [modalVisible, setModalVisible] = useState(false)
+     const {item} = route.params
+     
 
     return(
         <View style={{height:"100%",width:"100%",alignItems:"center"}}>
         <ScrollView>
-            <View style={{height:350,width:"90%",borderRadius:10,alignItems:"center",justifyContent:"center",
+            <View style={{height:350,width:"100%",borderRadius:10,justifyContent:"center",alignItems:"center",
             backgroundColor:"#fff",marginTop:20}}>
-            <Image style={{height:320,width:230,borderWidth:1,borderColor:"#000"}} source={require('../icons/vaccuum.jpeg')} />
+            <Image style={{height:320,width:"60%",borderWidth:1,borderColor:"#000"}} source={{uri:item.thumbnail}} />
             </View>
 
             <View style={{marginLeft:10,paddingVertical:10,height:100}}>
             <ScrollView horizontal>
-            <ProductPick  />
-            <ProductPick  />
-            <ProductPick  />
-            <ProductPick  />
-            <ProductPick  />
-            <ProductPick  />
-            <ProductPick  />
-            <ProductPick  />
+            {item.images.map((image, index) => (
+              <ProductPick key={index} img={{ uri: image }} />
+            ))}
+          
             </ScrollView>
             </View>
             <View style={{backgroundColor:"#fff",width:"100%",
                height:"100%"}}>
                   <View style={{paddingHorizontal:13}}>
                   <Text style={{color:"#000",fontSize:15,fontWeight:'500', marginTop:15}}>Creative Projection Electronics Clock LED Digital
-                   {"\n"} Clock Mini  Portable Projection Clock Mini Torch
-                   {"\n"} Projection Clock  </Text>
+                   {"\n"} {item.description}
+                   {"\n"}  </Text>
                    <Text style={{color:"grey",fontSize:11,marginTop:5}}>
                         Store: INFINITY WORKS
                    </Text>
                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                  <View style={{flexDirection:"row",justifyContent:"space-between",width:"53%",alignItems:"center"}}>
                   <Text style={{color:"#000",fontWeight:'500',fontSize:14}}>
-                      MRP: ₹999.00 
+                    ₹{item.price}
                    </Text>
                    <Text style={{color:"grey",fontSize:12}}>
                            Save upto 67%
@@ -57,7 +55,7 @@ const Product = ()=>{
                     <Text style={{color:"grey",fontSize:15}}>
                          Price:
                          <Text style={{color:"#000",fontSize:14,fontWeight:'500'}}>
-                         ₹120.00
+                        ₹{item.price}
                          </Text>
                         </Text>
                     <Text style={{color:"#000",fontSize:12,fontWeight:'600'}}>
@@ -66,7 +64,7 @@ const Product = ()=>{
                  </View>
                  <View>
                     <Text style={{color:"#000",fontSize:15,fontWeight:'600'}}>
-                         ₹141.60
+                    ₹{item.price}
                          <Text style={{color:"grey",fontSize:14,fontWeight:'500'}}>
                          /Piece
                          </Text>
