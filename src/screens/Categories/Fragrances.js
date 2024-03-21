@@ -1,46 +1,35 @@
 import React, { useState } from "react";
 import { View,Text, Image, FlatList,Pressable } from "react-native";
-import {  useSelector } from "react-redux";
 
-const Fragrances = ({navigation}) =>
+
+const Fragrances = () =>
 {
-   const passData = (item) =>
-   {
-     navigation.navigate('Product',{item})
-   }
-
-  const [column, setColumn] = useState(2)
-  const fragrancesDes = useSelector(state => state. fragrances.fragrancesItem);
+   
      return(
         <View>
-          <FlatList 
-          key={column}
-      data={fragrancesDes}
-      keyExtractor={(item) => item.id.toString()}
-      numColumns={column}
-       renderItem={({item}) => (
+          {/* FlatList */}
 
-        <Pressable onPress={()=> passData(item)} style={{paddingHorizontal:10}}>
+        <Pressable style={{paddingHorizontal:10}}>
              <View style={{height:230,width:170,borderRadius:5,alignItems:"center",paddingHorizontal:5,
              marginTop:10,
              borderWidth:0.3,borderColor:"grey"}}>
                 <View style={{height:130,width:142,alignItems:"center",borderRadius:5,marginTop:7,
                     borderWidth:0.3,borderColor:"grey"}}>
                  <Image style={{height:110,marginTop:10,
-                    width:121}} source={{uri:item.thumbnail}} /> 
+                    width:121}} source={require('../../icons/logo.png')} /> 
                 </View>
                
                <View>
                <Text style={{ 
                    color:'#000',fontSize:12,marginTop:5,fontWeight:'400',
-                  }}>{item.title}</Text>
+                  }}>sample data</Text>
                  <Text style={{
                      color:'#000'
-                 }}>₹{item.price}</Text>
+                 }}>sample data</Text>
                </View>
              </View>        
         </Pressable>
-       )} />
+       
         </View>
 
      )

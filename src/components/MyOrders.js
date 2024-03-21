@@ -1,7 +1,7 @@
 import React from "react";
 import {Pressable,View,Text,Image} from "react-native"
 
-const MyOrders= (props)=>
+const MyOrders= ()=>
 {
     
    return(
@@ -11,9 +11,9 @@ const MyOrders= (props)=>
       backgroundColor:"#ececec"}}>
     <View style={[{flexDirection:"row",
      justifyContent:"space-between",width:"85%"},props.imageStyle]}>
-    <Image style={[{height:25,width:25},props.imageStylesheet]} source={props.imageSource} />
+    <Image style={[{height:25,width:25},props.imageStylesheet]} source={require('../icons/logo.png')} />
     <Text style={[{fontSize:17,color:"#000",fontWeight:'500'},props.textStyle]}>
-          {props.name}
+          sample data
     </Text>
     </View>
 

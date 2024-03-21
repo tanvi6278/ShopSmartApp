@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, FlatList, Text } from 'react-native';
+import { View, TextInput, FlatList, Text, StatusBar } from 'react-native';
 
 const Cart = () => {
   const [searchQuery, setSearchQuery] = useState('');

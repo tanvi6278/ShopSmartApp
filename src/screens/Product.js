@@ -8,7 +8,7 @@ import UpperView from "../components/Modal";
 const Product = ({route})=>{
 
      const [modalVisible, setModalVisible] = useState(false)
-     const {item} = route.params
+     
      
 
     return(
@@ -16,15 +16,14 @@ const Product = ({route})=>{
         <ScrollView>
             <View style={{height:350,width:"100%",borderRadius:10,justifyContent:"center",alignItems:"center",
             backgroundColor:"#fff",marginTop:20}}>
-            <Image style={{height:320,width:"60%",borderWidth:1,borderColor:"#000"}} source={{uri:item.thumbnail}} />
+            <Image style={{height:320,width:"60%",borderWidth:1,borderColor:"#000"}} source={require('../icons/logo.png')} />
             </View>
 
             <View style={{marginLeft:10,paddingVertical:10,height:100}}>
             <ScrollView horizontal>
-            {item.images.map((image, index) => (
-              <ProductPick key={index} img={{ uri: image }} />
-            ))}
-          
+            
+              <ProductPick img={require('../icons/logo.png')} />
+       
             </ScrollView>
             </View>
             <View style={{backgroundColor:"#fff",width:"100%",
@@ -55,7 +54,7 @@ const Product = ({route})=>{
                     <Text style={{color:"grey",fontSize:15}}>
                          Price:
                          <Text style={{color:"#000",fontSize:14,fontWeight:'500'}}>
-                        ₹{item.price}
+                       sample data
                          </Text>
                         </Text>
                     <Text style={{color:"#000",fontSize:12,fontWeight:'600'}}>
@@ -64,7 +63,7 @@ const Product = ({route})=>{
                  </View>
                  <View>
                     <Text style={{color:"#000",fontSize:15,fontWeight:'600'}}>
-                    ₹{item.price}
+                    sample data
                          <Text style={{color:"grey",fontSize:14,fontWeight:'500'}}>
                          /Piece
                          </Text>

@@ -17,7 +17,7 @@ const TextField = (props)=>
               <Text style={{
                   fontSize:16,color:"#000"
               }}>
-                    {props.name}
+                sample data
               </Text>
               <TextInput style={{height:60,width:"90%",borderRadius:30,borderWidth:0.5,
                paddingHorizontal:10, borderColor:"grey",marginTop:5}}
