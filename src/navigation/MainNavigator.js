@@ -16,6 +16,7 @@ import Groceries from "../screens/Categories/Groceries";
 import HomeDecoration from "../screens/Categories/HomeDecoration";
 import Furniture from "../screens/Categories/Furniture";
 import SearchItem from "../screens/SearchItem";
+import CartDetails from "../screens/CartDetails";
 
 
 
@@ -55,6 +56,7 @@ const MainStack = ()=>
         <Stack.Screen name="HomeDecoration" component={HomeDecoration} />
         <Stack.Screen name="Furniture" component={Furniture} />
         <Stack.Screen name="SearchItem" component={SearchItem} />
+        <Stack.Screen name="CartDetails" component={CartDetails} />
       </Stack.Navigator>           
 
  

@@ -5,7 +5,7 @@ import Replacement from "../components/Replacement";
 import MOdal from '../components/Modal'
 import UpperView from "../components/Modal";
 
-const Product = ({route})=>{
+const Product = ({route,navigation})=>{
 
      const [modalVisible, setModalVisible] = useState(false)
      const {item} = route.params
@@ -153,6 +153,16 @@ const Product = ({route})=>{
                        <UpperView/>
                   </View>
                   </View>
+                  <Pressable onPress={() => navigation.navigate('CartDetails')}
+                   style={{height:50,width:360,borderRadius:30,
+                  alignItems:"center",
+                  justifyContent:"center",
+                  backgroundColor:"red"}} >
+                      <Text>
+                           Add To Cart
+                      </Text>
+
+                  </Pressable>
                   
             </View>
             </ScrollView>
