@@ -38,7 +38,7 @@ const CartDetails = () =>
                   justifyContent:"space-between",borderWidth:0.5,borderRadius:5, borderColor:"#e6e6e6",
                  flexDirection:"row"}}>
                        <Pressable>
-                           <Text style={{fontSize:25,color:"#000"}}>
+                           <Text style={{fontSize:28,color:"#000"}}>
                               -
                            </Text>
                        </Pressable>
@@ -48,7 +48,7 @@ const CartDetails = () =>
                          </Text>
                        </Pressable>
                        <Pressable>
-                         <Text style={{fontSize:20,color:"#000"}}>
+                         <Text style={{fontSize:22,color:"#000"}}>
                             +
                          </Text>
                        </Pressable>
@@ -122,6 +122,8 @@ const CartDetails = () =>
 
                      
                 </View>
+                
+                </ScrollView>  
            
                 <View style={{height:70,width:"100%",marginTop:7,
                 flexDirection:"row",
@@ -152,7 +154,6 @@ const CartDetails = () =>
 
 
 
-                </ScrollView>  
           </View>
     )
      
